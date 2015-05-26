@@ -85,10 +85,9 @@
   <div class="masonry-row">
     <div class="container">
       <div class="masonry-list">
+        <!--post item start-->
 
   {% for post in posts %}
-
-        <!--post item start-->
         <div class="post-item">
           <div class="date">{{ post.created_at|date_format }}</div>
           <div class="post-img">
@@ -109,6 +108,7 @@
           </h5>
 
           <div class="post-content">
+            {{ post.content }}
           </div>
 
           <div class="share-row">
@@ -117,10 +117,9 @@
             <a href="http://www.facebook.com/sharer.php?u={{ site.base_url }}{{ post.permalink }}" target="_blank"><i class="fa fa-facebook"></i></a>
           </div>
         </div>
-        <!--post item end-->
-
   {% endfor %}
 
+        <!--post item end-->
       </div>
     </div>
   </div>

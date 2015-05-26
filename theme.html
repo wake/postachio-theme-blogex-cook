@@ -104,7 +104,7 @@
           {% endif %}
 
           <h5>
-            <a href="{{ post.permalink }}">{{ post.title|replace(post.created_at|truncate(10)) }}</a>
+            <a href="{{ post.permalink }}">{{ post.title|replace(post.created_at|truncate(10), '') }}</a>
           </h5>
 
           <div class="post-content">

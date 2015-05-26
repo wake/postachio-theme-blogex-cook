@@ -168,11 +168,13 @@
 
         {% if post.content|striptags|wordcount > 0 %}
         {% set post_content = post.content|trim %}
-        {% if post_content|truncate(10, False, '') == '<div><del ' %}
-        {{ post_content|replace(post_content|truncate(723, True, ''), '<div><div>') }}
-        {% else %}
-        {{ post_content }}
-        {% endif %}
+
+          {% if post_content|truncate(10, False, '') == '<div><del ' %}
+          {% set post_content = post_content|replace(post_content|truncate(723, True, ''), '<div><div>') %}
+          {% endif %}
+
+          {{ post_content|replace ('<div  style="line-height: 1.6;"/>', '<div  style="line-height: 1.6;"></div>')|replace('<p style="margin: 0 0 1.1em; line-height: 1.6;"/>', '<p style="margin: 0 0 1.1em; line-height: 1.6;"></p>') }}
+
         {% endif %}
 
       </div>

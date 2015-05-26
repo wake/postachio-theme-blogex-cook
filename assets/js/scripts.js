@@ -4,27 +4,8 @@
   $(document).ready(function() {
 
     $('.post-content').each (function () {
-      //$(this).find ('img').appendTo ($(this).parent ().find ('.post-img'));
+      $(this).find ('img').appendTo ($(this).parent ().find ('.post-img'));
     });
-
-    /*
-    $('.posts-container, .post-container, .link-container').each (function () {
-
-      var hc = $(this).find ('a[title=hidden-cover]');
-
-      if (hc.size () > 0) {
-
-        var photo = $('<div>')
-          .css ('background-image', 'url("' + hc.attr ('href') + '")')
-          .addClass ('back-photo');
-
-        $(this)
-          .prev ()
-          .find ('.back-img')
-          .append (photo);
-      }
-    });
-    */
 
     /*===iso tope blog start===*/
     var $container = $('.masonry-list'),

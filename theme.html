@@ -80,74 +80,60 @@
   {% endif %}
 
   {% if posts %}
+
+  <!--masonry start-->
+  <div class="masonry-row">
+    <div class="container">
+      <div class="masonry-list">
+
   {% for post in posts %}
 
-  <!--full width image start-->
-  <div class="post-img full-width-img">
-  <div class="back-img" style="background-image:url('{{ assets('img/mochaGrunge.png') }}')"></div>
-  <div class="container">
-    <div class="row">
-    <div class="col-md-12">
-      <div class="post-header">
-      <div class="cat">
-        <ul>
-        <li><a href="{{ site.base_url }}">{{ post.author.name }}</a></li> 
-        <li><time datetime="{{ post.created_at }}">{{ post.created_at|date_format }}</time></li> 
-        <li><a href="{{ post.permalink }}#comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{ site.base_url }}{{ post.permalink }}">0</span></a></li>
-        </ul>
-      </div>
-      <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-      </div>
-    </div>
-    </div>
-  </div>
-  </div>
-  <!--full width image end-->
+        <!--post item start-->
+        <div class="post-item">
+          <div class="date">{{ post.created_at|date_format }}</div>
+          <div class="post-img">
+            <a href="#"><img alt="" src="img/image11.jpg"></a>
+          </div>
 
-  <!--container start-->
-  <div class="posts-container container">
-  <div class="row">
-    <div class="col-md-12">
-    <article class="post">
-      <div class="post-blog">
+          {% if post.tags %}
+          <div class="cat">
+            <ul>
+          {% for tag in post.tags %}
+              <li><a href="/tag/{{ tag }}">{{ tag|format_tag(link=False, humanize=True) }}</a></li>
+          {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
 
-      {% if post.content|striptags|wordcount > 0 %}
-      {% set post_content = post.content|trim %}
-        {% if post_content|truncate(10, False, '') == '<div><del ' %}
-        {{ post_content|replace(post_content|truncate(723, True, ''), '<div><div>') }}
-        {% else %}
-        {{ post_content }}
-        {% endif %}
-      {% endif %}
+          <h5>
+            <a href="{{ post.permalink }}">{{ post.title }}</a>
+          </h5>
 
-      </div>
+          <div>
+          {% if post.content|striptags|wordcount > 0 %}
+          {% set post_content = post.content|trim %}
+            {% if post_content|truncate(10, False, '') == '<div><del ' %}
+            {{ post_content|replace(post_content|truncate(723, True, ''), '<div><div>') }}
+            {% else %}
+            {{ post_content }}
+            {% endif %}
+          {% endif %}
+          </div>
 
-      <div class="post-share">
-      <a href="{{ post.permalink }}" target="_blank"><i class="fa fa-mail-forward"></i></a>
-      /
-      <a href="http://www.facebook.com/sharer.php?u={{ site.base_url }}{{ post.permalink }}" target="_blank"><i class="fa fa-facebook"></i></a>
-      </div>
-
-      {{ theme.social.bar }}
-
-      {% if post.tags %}
-      <div class="tags">
-      <ul>
-      {% for tag in post.tags %}
-        <li><a href="/tag/{{ tag }}">{{ tag|format_tag(link=False, humanize=True) }}</a></li>
-      {% endfor %}
-      </ul>
-      </div>
-      {% endif %}
-
-    </article>
-    </div>
-  </div>
-
-  </div>
-  <!--container end-->
+          <div class="share-row">
+            <a href="{{ post.permalink }}" target="_blank"><i class="fa fa-mail-forward"></i></a>
+            /
+            <a href="http://www.facebook.com/sharer.php?u={{ site.base_url }}{{ post.permalink }}" target="_blank"><i class="fa fa-facebook"></i></a>
+          </div>
+        </div>
+        <!--post item end-->
 
   {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
   {% endif %}
 
   {% elif post.type == 'post' %}
@@ -325,104 +311,6 @@
   </div>
   <!--container end-->
 
-  {% elif post.type == 'page' %}
-  {% if post.title == 'About' %}
-
-    <!--about row start-->
-    <div class="about-row">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <img alt="Wake Liu" src="{{ assets('img/about.png') }}" style="margin-top: 0px;">
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <h1>Wake Liu</h1>
-            <h3>Hi, stranger</h3>
-            <p>
-            您好，陌生人，很高興您來到這裡 <i class="fa fa-smile-o"></i><br />
-            如果您對我有興趣，下面有部份我的介紹，歡迎隨時來信聊聊。如果您在我的文章中有發現任何疑問或錯誤，也請不吝指點，我會儘快回覆改正。
-            </p>
-
-            <h3>About me</h3>
-            <p>
-            小小工程師一個，對前後端技術稍有涉略，除了最愛的程式以外，也喜歡羽球、閱讀、烹飪、鋼琴，不過僅限小朋友出生前。
-            現居林口，和妻子 Packy Huang 育有二子、二貓，外加小舅子的食客貓一隻。
-            </p>
-          </div>
-        </div>
-
-        <div class="row experience">
-          <div class="col-md-6 col-sm-6">
-            <img alt="spark.gs" src="{{ assets('img/spark.png') }}" style="margin-top: 80px;">
-          </div>
-          <div class="col-md-6 col-sm-6">
-
-            <h3>Experience</h3>
-
-            <h4>Works & Startups</h4>
-            <p>
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="#">Protype</a> Founder <sub class="date">2013/08 ~ </sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.babynext.com.tw">BabyNEXT</a> IT Manager <sub class="date">2012/04 ~ 2013/05</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.babyhome.com.tw">BabyHome</a> IT Manager <sub class="date">2007/12 ~ 2012/02</sub><br />
-            <i class="fa fa-angle-right"></i> 泓震資訊 Engineer <sub class="date">2007/05 ~ 2007/11</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.mingann.info/">明安資訊</a> Engineer <sub class="date">2007/01 ~ 2007/04</sub><br />
-            </p>
-          </div>
-        </div>
-
-        <div class="row experience">
-          <div class="col-md-6 col-sm-6">
-            <img alt="PHPConf.tw" src="{{ assets('img/phpconftw.png') }}" style="margin-top: 20px;">
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <h4>Community</h4>
-            <p>
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://phpconf.tw/2014/">PHPConf 2014</a> Staff - 贊助 / 媒體 <sub class="date">2014/10</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://phpconf.tw/2013/">PHPConf 2013</a> Staff - 贊助 & Lighting Talk Speaker <sub class="date">2013/10</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://hitcon.org/2013/">HITCON 2013</a> Staff - 贊助 / 媒體 <sub class="date">2013/07</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://phpconf.tw/2012/">PHPConf 2012</a> Speaker <sub class="date">2012/11</sub><br />
-            </p>
-          </div>
-        </div>
-
-        <div class="row experience">
-          <div class="col-md-6 col-sm-6">
-            <img alt="PHPConf.tw" src="{{ assets('img/sw.png') }}" style="margin-top: 40px;">
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <h4>Events</h4>
-            <p>
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.bnext.com.tw/article/view/id/34272">Startup Weekend #10 Taipei + Fukuoka</a> - SilverSkill <sup>1st</sup> <sub class="date">2014/11</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.bnext.com.tw/article/view/id/30172">Startup Weekend #9 Taipei + Taichung</a> - Loving Heart <sup>2nd</sup> <sub class="date">2013/11</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.bnext.com.tw/article/view/id/24597">Startup Weekend #5 Taiwan Hardware</a> - Lonely Boobs <sub class="date">2012/09</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.bnext.com.tw/article/view/id/20636">Startup Weekend #2 Hsinchu</a> - Myself Design <sub class="date">2011/11</sub><br />
-            <i class="fa fa-angle-right"></i> Startup Weekend #1 Taipei - EzCook <sup>3rd</sup> <sub class="date">2011/08</sub><br />
-            </p>
-          </div>
-        </div>
-
-        <div class="row experience">
-          <div class="col-md-6 col-sm-6">
-          </div>
-          <div class="col-md-6 col-sm-6">
-            <h4>Others</h4>
-            <p>
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://thebatonproject.org/humancareerlibrary/">真人職涯圖書館</a> - Speaker<sub class="date">2014/12</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.silverskill.co">SilverSkill</a> - SW #10<sub class="date">2014/11</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://www.foolpin.com">負評網 Follpin</a> - 原型網站建置</a><sub class="date">2014/02 ~ 2014/03</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://beta.cooospace.com/welcome">Coooospace</a> - 原型網站建置 <sub class="date">2014/01 ~ 2014/06</sub><br />
-            <i class="fa fa-angle-right"></i> <a target="_blank" href="http://wake.github.io/gsw/">SW Global Battle</a> - 提供比賽和投票資訊 (<a target="_blank" href="http://www.bnext.com.tw/article/view/id/30257">數位時代</a>) <sub class="date">2013/11 ~ 2013/12</sub><br />
-            <i class="fa fa-angle-right"></i> SW #9 賽後育成導師 (之一) <sub class="date">2013/11 ~ 2014/01</sub><br />
-            <i class="fa fa-angle-right"></i> Loving Heart - 原型網站建置<sub class="date">2013/11</sub><br />
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <!--about row end-->
-
-  {% endif %}
   {% endif %}
 
   {% if not is_tag %}
@@ -498,6 +386,12 @@
   {{ footer_meta }}
 
   <script src="{{ assets('js/jquery-1.11.0.js') }}"></script>
+
+  <script src="{{ assets('js/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ assets('js/wow.min.js') }}"></script>
+  <script src="{{ assets('js/jquery.collagePlus.min.js') }}"></script>
+  <script src="{{ assets('js/jquery.justifiedGallery.min.js') }}"></script>
+
   <script src="{{ assets('js/scroll-top.js') }}"></script>
   <script src="{{ assets('js/retina.js') }}"></script>
   <script src="{{ assets('js/scripts.js') }}"></script>

@@ -109,14 +109,7 @@
           </h5>
 
           <div class="post-content">
-          {% if post.content|striptags|wordcount > 0 %}
-          {% set post_content = post.content|trim %}
-            {% if post_content|truncate(10, False, '') == '<div><del ' %}
-            {{ post_content|replace(post_content|truncate(723, True, ''), '<div><div>') }}
-            {% else %}
-            {{ post_content }}
-            {% endif %}
-          {% endif %}
+            {{ post.content }}
           </div>
 
           <div class="share-row">

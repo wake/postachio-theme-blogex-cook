@@ -4,12 +4,7 @@
   $(document).ready(function() {
 
     $('.post-content').each (function () {
-
-      var self = $(this)
-        , pi = self.parent ().find ('.post-img')
-        ;
-
-      self.find ('img').appendTo (pi);
+      $(this).find ('img').appendTo ($(this).parent ().find ('.post-img'));
     });
 
     /*

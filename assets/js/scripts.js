@@ -4,7 +4,7 @@
   $(document).ready(function() {
 
     $('.post-content').each (function () {
-      $(this).find ('img').appendTo ($(this).parent ().find ('.post-img'));
+      //$(this).find ('img').appendTo ($(this).parent ().find ('.post-img'));
     });
 
     /*

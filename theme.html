@@ -90,32 +90,40 @@
 
         <!--post item start-->
         <div class="post-item">
-          <div class="date">{{ post.created_at|date_format }}</div>
+          <div class="date">July 10, 2014</div>
           <div class="post-img">
+            <a href="#"><img alt="" src="img/image11.jpg"></a>
           </div>
-
-          {% if post.tags %}
           <div class="cat">
             <ul>
-          {% for tag in post.tags %}
-              <li><a href="/tag/{{ tag }}">{{ tag|format_tag(link=False, humanize=True) }}</a></li>
-          {% endfor %}
+              <li>
+                <a href="#">lifestyle</a>
+              </li>
+              <li>
+                <a href="#">sticky post</a>
+              </li>
             </ul>
           </div>
-          {% endif %}
-
           <h5>
-            <a href="{{ post.permalink }}">{{ post.title }}</a>
+            <a href="#">Welcome to the stage, super themebucket </a>
           </h5>
 
-          <div class="post-content">
-            {{ post.content }}
-          </div>
-
+          <p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic</p>
           <div class="share-row">
-            <a href="{{ post.permalink }}" target="_blank"><i class="fa fa-mail-forward"></i></a>
-            /
-            <a href="http://www.facebook.com/sharer.php?u={{ site.base_url }}{{ post.permalink }}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="#">
+              Share <i class="fa fa-share-alt"></i>
+            </a>
+          </div>
+          <div class="share-info">
+            <ul>
+              <li><a href="#" target="_blank" class="wow bounceIn" data-wow-delay=".1s"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#" target="_blank" class="wow bounceIn" data-wow-delay=".2s"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#" target="_blank" class="wow bounceIn" data-wow-delay=".3s"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#" target="_blank" class="wow bounceIn" data-wow-delay=".4s"><i class="fa fa-pinterest"></i></a></li>
+              <li><a href="#" target="_blank" class="wow bounceIn" data-wow-delay=".5s"><i class="fa fa-link"></i></a></li>
+              <li><a href="#" class="wow bounceIn" data-wow-delay=".6s"><i class="fa fa-tumblr"></i></a></li>
+            </ul>
+            <a href="#" class="share-close">Close <i class="fa fa-times"></i></a>
           </div>
         </div>
         <!--post item end-->

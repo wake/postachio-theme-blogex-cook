@@ -97,7 +97,7 @@
           <div class="cat">
             <ul>
           {% for tag in post.tags %}
-              <li><a href="/tag/{{ tag }}">{{ tag|format_tag(link=False, humanize=True) }}</a></li>
+              <li><a href="/tag/{{ tag }}">{{ tag|format_tag(link=False, humanize=False) }}</a></li>
           {% endfor %}
             </ul>
           </div>

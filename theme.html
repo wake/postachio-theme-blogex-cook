@@ -97,14 +97,14 @@
           <div class="cat">
             <ul>
           {% for tag in post.tags %}
-              <li><a href="/tag/{{ tag }}">{{ tag|format_tag(link=False, humanize=False) }}</a></li>
+              <li><a href="/tag/{{ tag }}">{{ tag|format_tag(link=False, humanize=True) }}</a></li>
           {% endfor %}
             </ul>
           </div>
           {% endif %}
 
           <h5>
-            <a href="{{ post.permalink }}">{{ post.title }}</a>
+            <a href="{{ post.permalink }}">{{ post.title|replace(post.created_at|truncate(10)) }}</a>
           </h5>
 
           <div class="post-content">

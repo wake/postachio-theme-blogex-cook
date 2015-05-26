@@ -1,0 +1,31 @@
+
+ul.menu li i.fa {
+  font-size: 15px;
+}
+
+
+.post-container .post {
+    margin-bottom: 30px;
+}
+
+.post-header a:hover,
+.post-header a:hover {
+    color: #fff !important;
+}
+
+.post-blog del > a {
+  display: none;
+}
+
+.post-blog a {
+  color: #2090d9 !important;
+}
+.full-width-img .post-header h1,
+.full-width-img .post-header h1 a,
+.full-width-img .post-header h2,
+.full-width-img .post-header h2 a {
+    font-size: 48px;
+    margin-top: 10px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}

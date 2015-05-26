@@ -92,7 +92,6 @@
         <div class="post-item">
           <div class="date">{{ post.created_at|date_format }}</div>
           <div class="post-img">
-            <a href="#"><img alt="" src="img/image11.jpg"></a>
           </div>
 
           {% if post.tags %}
@@ -109,7 +108,7 @@
             <a href="{{ post.permalink }}">{{ post.title }}</a>
           </h5>
 
-          <div>
+          <div class="post-content">
           {% if post.content|striptags|wordcount > 0 %}
           {% set post_content = post.content|trim %}
             {% if post_content|truncate(10, False, '') == '<div><del ' %}

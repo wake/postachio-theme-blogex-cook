@@ -3,6 +3,15 @@
 
   $(document).ready(function() {
 
+    $('.post-content').each (function () {
+
+      var self = $(this)
+        , pi = self.parent ().find ('.post-img')
+        ;
+
+      self.find ('img').appendTo (pi);
+    });
+
     /*
     $('.posts-container, .post-container, .link-container').each (function () {
 

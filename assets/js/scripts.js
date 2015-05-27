@@ -16,7 +16,7 @@
         if ($img.next ('br').size () > 0)
           $img.next ('br').remove ();
 
-        $img.wrap ('<a href="#"></a>').appendTo ($grid);
+        $img.wrap ($('<a href="#"></a>').appendTo ($grid));
 
       });
 

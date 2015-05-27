@@ -19,7 +19,7 @@
           $img.next ('br').remove ();
 
         $img.wrap ($a);
-        $a.appendTo ($grid));
+        $a.appendTo ($grid);
 
       });
 

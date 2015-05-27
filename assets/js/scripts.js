@@ -5,38 +5,34 @@
 
     $('.post-content').each (function () {
 
-      var $grid = $('<div class="grid-gallery"></div>')
+      var $grid = $('<ul class="bxslider"></ul>')
         , $pi = $(this).parent ().find ('.post-img').append ($grid)
         ;
 
       $(this).find ('img').each (function () {
 
         var $img = $(this)
-          , $a = $('<a href="' + $img.attr ('src') + '"></a>')
+          , $li = $('<li></li>')
           ;
 
         if ($img.next ('br').size () > 0)
           $img.next ('br').remove ();
 
         $img.appendTo ($grid);
-        $img.wrap ($a);
+        $img.wrap ($li);
 
+      });
+
+      // Bxslider
+
+      $('.bxslider').bxSlider({
+        adaptiveHeight: false,
+        mode: 'fade',
+        pager: true,
+        captions: true
       });
 
     });
-
-    setTimeout (function () {
-
-      //Justified Grid
-      $('.grid-gallery').justifiedGallery ({
-        rowHeight: 300,
-        fixedHeight: false,
-        lastRow: 'justify',
-        margins: 10,
-        randomize: false
-      });
-
-    }, 500);
 
     /*===iso tope blog start===*/
     var $container = $('.masonry-list'),

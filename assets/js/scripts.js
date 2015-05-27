@@ -14,9 +14,22 @@
         if ($img.next ('br').size () > 0)
           $img.next ('br').remove ();
 
-        $img.appendTo ($pi);
+        $img.wrap ('<a href="#"></a>').appendTo ($pi);
 
       });
+
+      //Justified Grid
+      $pi.justifiedGallery({
+        rowHeight: 300,
+        fixedHeight: false,
+        lastRow: 'justify',
+        margins: 10,
+        randomize: false
+      });
+
+      // lightgallery
+      $pi.lightGallery ();
+
     });
 
     /*===iso tope blog start===*/

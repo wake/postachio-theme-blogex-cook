@@ -31,6 +31,9 @@
         randomize: false
       });
 
+      // lightgallery
+      $grid.lightGallery();
+
     });
 
     /*===iso tope blog start===*/

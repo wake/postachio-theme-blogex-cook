@@ -18,10 +18,12 @@
         if ($img.next ('br').size () > 0)
           $img.next ('br').remove ();
 
-        $img.appendTo ($grid).wrap ($a);
+        $img.appendTo ($grid);
+        $img.wrap ($a);
 
       });
 
+      /*
       setTimeout (function () {
 
         //Justified Grid
@@ -34,6 +36,8 @@
         });
 
       }, 500);
+      */
+
     });
 
     /*===iso tope blog start===*/

@@ -12,7 +12,7 @@
       $(this).find ('img').each (function () {
 
         var $img = $(this)
-          , $a = $('<a href="' + $img.attr ('src') + '"></a>')
+          , $a = $('<a href="' + $img.attr ('src') + '" target="_blank"></a>')
           ;
 
         if ($img.next ('br').size () > 0)
@@ -32,7 +32,7 @@
       });
 
       // lightgallery
-      $grid.lightGallery();
+      // $grid.lightGallery();
 
     });
 

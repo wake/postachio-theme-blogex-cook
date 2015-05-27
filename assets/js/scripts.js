@@ -5,7 +5,9 @@
 
     $('.post-content').each (function () {
 
-      var $grid = $(this).parent ().find ('.post-img').append ('<div class="grid-gallery"></div>');
+      var $grid = $('<div class="grid-gallery"></div>')
+        , $pi = $(this).parent ().find ('.post-img').append ($grid)
+        ;
 
       $(this).find ('img').each (function () {
 

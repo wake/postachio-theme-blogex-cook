@@ -22,18 +22,18 @@
 
       });
 
-      //Justified Grid
-      $grid.justifiedGallery({
-        rowHeight: 300,
-        fixedHeight: false,
-        lastRow: 'justify',
-        margins: 10,
-        randomize: false
-      });
+      setTimeout (function () {
 
-      // lightgallery
-      $grid.lightGallery ();
+        //Justified Grid
+        $grid.justifiedGallery({
+          rowHeight: 300,
+          fixedHeight: false,
+          lastRow: 'justify',
+          margins: 10,
+          randomize: false
+        });
 
+      }, 500);
     });
 
     /*===iso tope blog start===*/

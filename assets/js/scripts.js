@@ -23,12 +23,7 @@
 
       });
 
-    });
-
-    setTimeout (function () {
-
-      //Justified Grid
-      $('.grid-gallery').justifiedGallery ({
+      $grid.justifiedGallery ({
         rowHeight: 300,
         fixedHeight: false,
         lastRow: 'justify',
@@ -36,7 +31,7 @@
         randomize: false
       });
 
-    }, 500);
+    });
 
     /*===iso tope blog start===*/
     var $container = $('.masonry-list'),

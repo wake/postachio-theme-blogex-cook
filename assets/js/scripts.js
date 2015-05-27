@@ -4,7 +4,19 @@
   $(document).ready(function() {
 
     $('.post-content').each (function () {
-      $(this).find ('img').appendTo ($(this).parent ().find ('.post-img'));
+
+      var $pi = $(this).parent ().find ('.post-img');
+
+      $(this).find ('img').each (function () {
+
+        var $img = $(this);
+
+        if ($img.next ('br').size () > 0)
+          $img.next ('br').remove ();
+
+        $img.appendTo ($pi);
+
+      });
     });
 
     /*===iso tope blog start===*/

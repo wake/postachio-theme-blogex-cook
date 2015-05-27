@@ -18,8 +18,7 @@
         if ($img.next ('br').size () > 0)
           $img.next ('br').remove ();
 
-        $img.wrap ($a);
-        $a.appendTo ($grid);
+        $img.appendTo ($grid).wrap ($a);
 
       });
 

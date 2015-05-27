@@ -11,12 +11,15 @@
 
       $(this).find ('img').each (function () {
 
-        var $img = $(this);
+        var $img = $(this)
+          , $a = $('<a href="' + $img.attr ('src') + '"></a>')
+          ;
 
         if ($img.next ('br').size () > 0)
           $img.next ('br').remove ();
 
-        $img.wrap ($('<a href="#"></a>').appendTo ($grid));
+        $img.wrap ($a);
+        $a.appendTo ($grid));
 
       });
 

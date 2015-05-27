@@ -5,7 +5,7 @@
 
     $('.post-content').each (function () {
 
-      var $pi = $(this).parent ().find ('.post-img');
+      var $grid = $(this).parent ().find ('.post-img').append ('<div class="grid-gallery"></div>');
 
       $(this).find ('img').each (function () {
 
@@ -14,12 +14,12 @@
         if ($img.next ('br').size () > 0)
           $img.next ('br').remove ();
 
-        $img.wrap ('<a href="#"></a>').appendTo ($pi);
+        $img.wrap ('<a href="#"></a>').appendTo ($grid);
 
       });
 
       //Justified Grid
-      $pi.justifiedGallery({
+      $grid.justifiedGallery({
         rowHeight: 300,
         fixedHeight: false,
         lastRow: 'justify',
@@ -28,7 +28,7 @@
       });
 
       // lightgallery
-      $pi.lightGallery ();
+      $grid.lightGallery ();
 
     });
 

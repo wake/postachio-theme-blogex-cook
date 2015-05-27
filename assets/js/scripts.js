@@ -23,22 +23,20 @@
 
       });
 
-      /*
-      setTimeout (function () {
-
-        //Justified Grid
-        $grid.justifiedGallery({
-          rowHeight: 300,
-          fixedHeight: false,
-          lastRow: 'justify',
-          margins: 10,
-          randomize: false
-        });
-
-      }, 500);
-      */
-
     });
+
+    setTimeout (function () {
+
+      //Justified Grid
+      $('.grid-gallery').justifiedGallery ({
+        rowHeight: 300,
+        fixedHeight: false,
+        lastRow: 'justify',
+        margins: 10,
+        randomize: false
+      });
+
+    }, 500);
 
     /*===iso tope blog start===*/
     var $container = $('.masonry-list'),

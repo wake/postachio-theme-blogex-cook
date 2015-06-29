@@ -114,6 +114,7 @@
           {% set post_content = post.content|trim %}
 
             {% if post_content|truncate(10, False, '') == '<div><del ' %}
+            {% set post_content = post_content|replace(post_content|truncate(712, True, ''), '<div><div>') %}
             {% endif %}
 
             {{ post_content|replace ('<div  style="line-height: 1.6;"/>', '<div  style="line-height: 1.6;"></div>')|replace('<p style="margin: 0 0 1.1em; line-height: 1.6;"/>', '<p style="margin: 0 0 1.1em; line-height: 1.6;"></p>') }}
